@@ -1,30 +1,35 @@
 # User Management App
 
-I built this project as a React user management dashboard using Vite and functional components. The app fetches user data from the JSONPlaceholder API, lets me search users by name, view detailed user information, and add new users locally without a backend.
+I built this project as a simple user management dashboard in React using Vite and functional components. The main idea was to create something clean, easy to understand, and realistic enough to explain in an interview.
 
-I kept the structure clean and reusable so it is easy to maintain and also easy to explain in an interview.
+The app gets a list of users from the JSONPlaceholder API, lets me search through them, view full details, and add new users without needing a backend. I also saved the added users in localStorage so the data stays after a refresh.
 
-## Features
+## What I Built
 
-- Fetches users from the JSONPlaceholder API
-- Displays users in a clean card-based list
-- Search by name
-- View full user details on click
-- Add new users using a form
-- Pagination with 5 users per page
-- Highlights the selected user
-- Saves added users in localStorage
-- Responsive layout for mobile and desktop
+This project includes:
+
+- fetching users from a public API
+- searching users by name
+- showing user details when a card is clicked
+- adding a new user through a form
+- pagination with 5 users per page
+- highlighting the selected user
+- saving new users in localStorage
+- responsive styling for desktop and mobile
 
 ## Tech Stack
 
+I used:
+
 - React
 - Vite
-- JavaScript (functional components)
+- JavaScript functional components
 - CSS
 - Fetch API
 
-## Folder Structure
+## Project Structure
+
+I kept the folder structure simple and separated the logic into reusable parts:
 
 ```bash
 src/
@@ -45,26 +50,43 @@ src/
 └── main.jsx
 ```
 
-## How It Works
+## How the App Works
 
-### 1. User data
-The app starts by fetching users from the API in `src/api/userApi.js`.
+### 1. Fetching users
+The API call is handled in `src/api/userApi.js`. When the page loads, the app fetches the users and stores them in the main state.
 
-### 2. Main page logic
-`src/pages/Home.jsx` manages the main state for:
+### 2. Managing state
+`src/pages/Home.jsx` is the main container for the app. It manages:
 
-- users
-- loading
-- error
-- search term
+- the full users list
+- loading state
+- error state
+- search text
 - selected user
 - current page
 
-### 3. Adding users
-When I add a user from the form, the new user is saved in local state and persisted in localStorage so it stays available after refresh.
+This is the file where most of the app logic lives.
 
-### 4. User details
-Clicking a user card shows the complete user profile on the right side of the layout.
+### 3. Searching users
+The search input filters users by name. When I type in the search bar, the list updates immediately and pagination resets back to the first page.
+
+### 4. Adding a user
+The add user form collects the name, email, and phone number. After submission, the new user is added to the UI and stored in localStorage so it is still there after a refresh.
+
+### 5. Viewing details
+When I click a user card, that user becomes the selected user and the details panel shows the full profile information on the right side.
+
+### 6. Pagination
+I limited the list to 5 users per page to keep the interface clean. The pagination component handles moving between pages.
+
+## Component Roles
+
+- `SearchBar.jsx` handles searching
+- `AddUserForm.jsx` handles new user input
+- `UserList.jsx` renders the visible users
+- `UserCard.jsx` shows each user in a compact card
+- `UserDetails.jsx` shows full details for the selected user
+- `Pagination.jsx` moves through the list page by page
 
 ## Run Locally
 
@@ -75,21 +97,21 @@ npm run dev
 
 ## Available Scripts
 
-- `npm run dev` - starts the development server
-- `npm run build` - builds the app for production
-- `npm run lint` - checks the code with ESLint
-- `npm run preview` - previews the production build locally
+- `npm run dev` starts the development server
+- `npm run build` creates the production build
+- `npm run lint` checks the code with ESLint
+- `npm run preview` previews the production build locally
 
 ## Deployment
 
-This project is ready to deploy on Vercel.
+I already structured the project so it is ready for Vercel deployment.
 
-Before deploying, make sure:
+Before deploying, I make sure:
 
-- the build passes successfully
-- the app runs without lint errors
-- the GitHub repository is pushed and up to date
+- the build passes
+- lint is clean
+- the GitHub repo is updated
 
-## Notes
+## Note
 
-This project does not use a backend for adding users. New users are managed in local state and stored in localStorage, which keeps the app simple and practical for a front-end assignment.
+This project does not use a backend for adding users. I kept that part in local state and localStorage so the app stays simple, practical, and focused on the React side of the assignment.
