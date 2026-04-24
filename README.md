@@ -115,3 +115,5 @@ Before deploying, I make sure:
 ## Note
 
 This project does not use a backend for adding users. I kept that part in local state and localStorage so the app stays simple, practical, and focused on the React side of the assignment.
+
+Deployment pending due to Netlify build configuration, will be updated soon.
